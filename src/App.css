@@ -21,12 +21,12 @@ footer {
 }
 
 header h1 {
-  color: #0277bd;
+  color: #ba2864;
   margin-bottom: 10px;
 }
 
 nav a {
-  color: #0277bd;
+  color: #f66593;
   text-decoration: none;
   margin: 0 10px;
   font-weight: 500;
@@ -39,11 +39,11 @@ nav a:hover {
 footer {
   margin-top: auto;
   font-size: 14px;
-  color: #0277bd;
+  color: #861051;
 }
 
 a {
-  color: #0277bd;
+  color: #41001e;
   text-decoration: none;
   margin: 0 10px;
   font-weight: 500;
@@ -62,7 +62,7 @@ main {
 }
 
 .form-container {
-  border: 2px dotted #0288d1;
+  border: 2px dotted #000000;
   border-radius: 10px;
   background: linear-gradient(to right, #e1f5fe, #eceff1);
   padding: 30px 25px;
@@ -79,7 +79,7 @@ main {
 }
 
 .form-title {
-  color: #0288d1;
+  color: #d42180;
   margin-bottom: 20px;
 }
 
@@ -97,7 +97,7 @@ input {
 button {
   width: 100%;
   padding: 10px;
-  background-color: #0288d1;
+  background-color: #d1025c;
   color: white;
   font-size: 15px;
   border: none;
@@ -108,14 +108,14 @@ button {
 }
 
 button:hover {
-  background-color: #0277bd;
+  background-color: #bd025c;
 }
 
 button:active {
-  background-color: #01579b;
+  background-color: #9b0151;
 }
 
 .form-container h2,
 .form-container p {
-  color: #0288d1;
+  color: #b33b79;
 }
