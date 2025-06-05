@@ -249,3 +249,24 @@ button:active {
 .product-card button:hover {
   background-color: #8e57ba;
 }
+nav a {
+  position: relative;
+  color: #f66593;
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.cart-badge {
+  background-color: #b57edc;  /* lavender-ish */
+  color: white;
+  border-radius: 50%;
+  padding: 2px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+}

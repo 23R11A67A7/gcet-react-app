@@ -1,21 +1,29 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AppContext } from "../App";
-import "../App.css";
+import '../App.css';
 
 export default function Header() {
-  const { user } = useContext(AppContext);
+  const { user, cart } = useContext(AppContext);
+
+  // Calculate total quantity of all items in the cart
+  const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <header className="header">
-      <h1 className="header-title">My Online Store</h1>
-      <nav className="nav-links">
-        <Link to="/">🏠 Home</Link>
-        <Link to="/cart">🛒 Cart</Link>
+    <header>
+      <h1>My Online Store</h1>
+      <nav>
+        <Link to="/">Home🏠︎</Link>
+        <Link to="/cart">
+          Cart🛒 
+          {cartCount > 0 && (
+            <span className="cart-badge">{cartCount}</span>
+          )}
+        </Link>
         {user?.token ? (
-          <Link to="/logout">🚪 Logout</Link>
+          <Link to="/logout">Logout</Link>
         ) : (
-          <Link to="/login">🔐 Login</Link>
+          <Link to="/login">Login</Link>
         )}
       </nav>
     </header>
