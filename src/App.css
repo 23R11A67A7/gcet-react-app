@@ -234,3 +234,18 @@ button:active {
   font-size: 16px;
 }
 
+.product-card button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #b57edc;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+  background-color: #8e57ba;
+}
