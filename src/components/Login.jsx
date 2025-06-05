@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../App"; 
 import { useNavigate } from "react-router-dom";
-import '../App.css';
+import "../App.css";
 
 export default function Login() {
   const { users, setUser } = useContext(AppContext);
@@ -12,8 +12,7 @@ export default function Login() {
   const handleLogin = () => {
     const user = users.find(u => u.email === email && u.password === password);
     if (user) {
-     setUser({ ...user, token: "abc123" }); 
-
+      setUser({ ...user, token: "abc123" }); 
       navigate("/");
     } else {
       alert("Invalid credentials");
@@ -26,26 +25,27 @@ export default function Login() {
 
   return (
     <div className="form-container">
-      <h3 className="form-title">Login</h3>
+      <h3 className="form-title">🔐 Login</h3>
+
       <input
         type="email"
         placeholder="Email"
         value={email}
         onChange={e => setEmail(e.target.value)}
       />
+
       <input
         type="password"
         placeholder="Password"
         value={password}
         onChange={e => setPassword(e.target.value)}
       />
-      <button onClick={handleLogin}>Submit</button>
 
-      
-      <button
-        style={{ marginTop: "12px", backgroundColor: "#0288d1", color: "#fff" }}
-        onClick={handleCreateAccount}
-      > Create Account </button>
+      <button onClick={handleLogin}>Login</button>
+
+      <button className="secondary-btn" onClick={handleCreateAccount}>
+        Create Account
+      </button>
     </div>
   );
 }

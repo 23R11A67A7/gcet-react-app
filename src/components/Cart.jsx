@@ -1,12 +1,11 @@
 import React from "react";
-import '../App.css';
-
+import "../App.css";
 
 export default function Cart() {
   return (
-    <div className="form-container">
-      <h3 className="form-title">Cart List ❤︎ </h3>
-      <p style={{ color: "#191970" }}>Your Cart is empty</p>
+    <div className="form-container cart-container">
+      <h3 className="form-title">🛒 Your Cart ❤︎</h3>
+      <p className="cart-empty-text">Looks like your cart is empty!</p>
     </div>
   );
 }
