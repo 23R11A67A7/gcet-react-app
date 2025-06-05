@@ -6,8 +6,8 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom, #e0f7fa, #f0f4f8);
-  color: #333;
+  background: linear-gradient(to bottom, #e2c5d5, #d25696);
+  color: #690530;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@ body {
 
 header,
 footer {
-  background-color: #cfd8dc;
+  background-color: #f4e8ef;
   padding: 20px;
   text-align: center;
 }
@@ -64,7 +64,7 @@ main {
 .form-container {
   border: 2px dotted #000000;
   border-radius: 10px;
-  background: linear-gradient(to right, #e1f5fe, #eceff1);
+  background: linear-gradient(to right, #f5a7c8, #e9d0e0);
   padding: 30px 25px;
   width: 300px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -87,9 +87,9 @@ input {
   width: 100%;
   padding: 10px;
   margin-bottom: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #a5245e;
   border-radius: 6px;
-  background-color: #fff;
+  background-color: #ffffff;
   color: #333;
   font-size: 14px;
 }
