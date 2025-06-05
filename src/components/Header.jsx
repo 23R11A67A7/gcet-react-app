@@ -6,7 +6,6 @@ import '../App.css';
 export default function Header() {
   const { user, cart } = useContext(AppContext);
 
-  // Calculate total quantity of all items in the cart
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
@@ -15,10 +14,8 @@ export default function Header() {
       <nav>
         <Link to="/">Home🏠︎</Link>
         <Link to="/cart">
-          Cart🛒 
-          {cartCount > 0 && (
-            <span className="cart-badge">{cartCount}</span>
-          )}
+          Cart🛒
+          {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
         </Link>
         {user?.token ? (
           <Link to="/logout">Logout</Link>

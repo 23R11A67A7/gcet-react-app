@@ -4,7 +4,7 @@ import axios from "axios";
 import '../App.css';
 
 export default function Product() {
-  const { user, addToCart } = useContext(AppContext);
+  const { user, cart, setCart } = useContext(AppContext);
   const [products, setProducts] = useState([]);
 
   const fetchProducts = async () => {
@@ -20,18 +20,31 @@ export default function Product() {
     fetchProducts();
   }, []);
 
-  return (
-    <div className="form-container">
-      {user && <h2 className="form-title">Welcome, {user.name}!</h2>}
-      <p style={{ color: "#4b007d" }}>Product List</p>
+  // Add product to cart (increase qty if exists)
+  const addToCart = (product) => {
+    const existingItem = cart.find(item => item.id === product.id);
+    if (existingItem) {
+      const updatedCart = cart.map(item => 
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+      setCart(updatedCart);
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
+  };
 
+  return (
+    <div className="form-container" style={{ width: '90%', maxWidth: '960px' }}>
+      {user && <h2 className="form-title">Welcome, {user.name}!</h2>}
+      <p style={{ color: "#4b007d", fontWeight: '600' }}>Product List</p>
+      
       <div className="product-grid">
         {products.map(product => (
-          <div key={product.id} className="product-card">
-            <img src={product.imgUrl} alt={product.name} />
+          <div className="product-card" key={product.id}>
+            {product.image && <img src={product.image} alt={product.name} />}
             <h3>{product.name}</h3>
             <p>{product.description}</p>
-            <p className="price">${product.price}</p>
+            <div className="price">${product.price.toFixed(2)}</div>
             <button onClick={() => addToCart(product)}>Add to Cart</button>
           </div>
         ))}
