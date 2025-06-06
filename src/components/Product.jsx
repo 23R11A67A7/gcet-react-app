@@ -1,24 +1,20 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AppContext } from "../App";
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid"; // to generate unique IDs
+import { useNavigate } from "react-router-dom";
 import "../App.css";
 
 export default function Product() {
   const { user, cart, setCart } = useContext(AppContext);
   const [products, setProducts] = useState([]);
+  const [showCartButton, setShowCartButton] = useState(false);
+  const navigate = useNavigate();
 
+  // Fetch product list from backend
   const fetchProducts = async () => {
     try {
       const res = await axios.get("http://localhost:8080/products");
-
-      // Ensure each product has a unique ID
-      const dataWithIds = res.data.map((product, index) => ({
-        ...product,
-        id: product.id ?? uuidv4(), // use existing ID or generate a new one
-      }));
-
-      setProducts(dataWithIds);
+      setProducts(res.data);
     } catch (err) {
       console.error("Error fetching products:", err);
     }
@@ -28,21 +24,27 @@ export default function Product() {
     fetchProducts();
   }, []);
 
+  // Add to cart logic
   const addToCart = (product) => {
-    const existingItem = cart.find((item) => item.id === product.id);
-
+    // Ensure ID comparison is consistent
+    const existingItem = cart.find((item) => Number(item.id) === Number(product.id));
+    
     if (existingItem) {
       const updatedCart = cart.map((item) =>
-        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        Number(item.id) === Number(product.id)
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
       );
       setCart(updatedCart);
     } else {
       setCart([...cart, { ...product, quantity: 1 }]);
     }
+
+    setShowCartButton(true);
   };
 
   return (
-    <div className="form-container" style={{ width: '90%', maxWidth: '1000px' }}>
+    <div className="form-container" style={{ width: "90%", maxWidth: "1000px" }}>
       {user && <h2 className="form-title">Welcome, {user.name}!</h2>}
       <p style={{ color: "#4b007d", fontWeight: "600" }}>Product List</p>
 
@@ -59,6 +61,12 @@ export default function Product() {
           </div>
         ))}
       </div>
+
+      {showCartButton && (
+        <button className="go-to-cart-btn" onClick={() => navigate("/cart")}>
+          Go to Cart 🛒
+        </button>
+      )}
     </div>
   );
 }

@@ -7,8 +7,8 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom, #e6e6fa, #d8bfd8); /* lavender gradient */
-  color: #4b007d; /* dark purple */
+  background: linear-gradient(to bottom, #e6e6fa, #d8bfd8);
+  color: #4b007d;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,16 +17,14 @@ body {
 /* Header & Footer */
 header,
 footer {
-  background-color: #f8f8ff; /* ghost white */
+  background-color: #f8f8ff;
   padding: 25px 20px;
   text-align: center;
   box-shadow: 0 2px 6px rgba(75, 0, 125, 0.1);
-  position: relative;
-  overflow: hidden;
 }
 
 header h1 {
-  color: #7b68ee; /* medium slate blue */
+  color: #7b68ee;
   font-size: 2rem;
   margin-bottom: 5px;
   animation: glow 2s ease-in-out infinite alternate;
@@ -48,7 +46,7 @@ nav {
 
 nav a {
   position: relative;
-  color: #9370db; /* medium purple */
+  color: #9370db;
   text-decoration: none;
   margin: 0 12px;
   font-weight: 600;
@@ -56,11 +54,11 @@ nav a {
 }
 
 nav a:hover {
-  color: #4b007d; /* dark purple */
+  color: #4b007d;
 }
 
 .cart-badge {
-  background-color: #7b68ee; /* medium slate blue */
+  background-color: #7b68ee;
   color: white;
   border-radius: 50%;
   padding: 2px 7px;
@@ -69,7 +67,7 @@ nav a:hover {
   position: absolute;
   top: -6px;
   right: -10px;
-  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
 /* Footer */
@@ -92,12 +90,12 @@ main {
 .form-container {
   background: linear-gradient(to right, #e6e6fa, #f3e8ff);
   padding: 35px 30px;
-  width: 320px;
-  border-radius: 40px; /* Oval shape */
+  width: 90%;
+  max-width: 700px;
+  border-radius: 40px;
   box-shadow: 0 12px 25px rgba(123, 104, 238, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-container:hover {
@@ -107,7 +105,7 @@ main {
 
 .form-title {
   color: #7b68ee;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-bottom: 20px;
   font-weight: 600;
 }
@@ -121,7 +119,6 @@ input {
   border-radius: 15px;
   background-color: #fff;
   font-size: 15px;
-  transition: border-color 0.3s;
 }
 
 input:focus {
@@ -141,21 +138,15 @@ button {
   border-radius: 15px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 10px;
 }
 
 button:hover {
-  background-color: #6a5acd; /* slate blue */
+  background-color: #6a5acd;
 }
 
 button:active {
   background-color: #5a47ad;
-}
-
-/* Form text */
-.form-container h2,
-.form-container p {
-  color: #6a5acd;
-  margin-bottom: 10px;
 }
 
 /* Product grid and cards */
@@ -168,7 +159,7 @@ button:active {
 
 .product-card {
   background: #ffffff;
-  border-radius: 40px; /* Oval shape */
+  border-radius: 40px;
   box-shadow: 0 8px 20px rgba(123, 104, 238, 0.2);
   width: 220px;
   padding: 20px;
@@ -211,7 +202,6 @@ button:active {
   color: #4b007d;
 }
 
-/* Add to Cart button */
 .product-card button {
   margin-top: auto;
   padding: 10px;
@@ -239,32 +229,7 @@ ul li {
   font-weight: 600;
   color: #5a3e91;
 }
-.cart-item {
-  background-color: #f7f2f8;
-  border-radius: 20px;
-  padding: 15px;
-  margin-bottom: 12px;
-  box-shadow: 0 4px 10px rgba(173, 143, 186, 0.2);
-}
-.cart-item {
-  background-color: #f7f2fa;
-  border-radius: 20px;
-  padding: 15px;
-  margin-bottom: 15px;
-  box-shadow: 0 4px 12px rgba(108, 74, 138, 0.15);
-  transition: transform 0.3s ease;
-  color: #4b007d;
-}
 
-.cart-item:hover {
-  transform: scale(1.02);
-}
-
-.cart-item-name {
-  font-weight: 600;
-  color: #690530;
-  margin-bottom: 5px;
-}
 .cart-item {
   background-color: #f7f2fa;
   border-radius: 20px;
@@ -309,6 +274,7 @@ ul li {
   color: #4b007d;
   text-align: right;
 }
+
 .quantity-controls {
   display: flex;
   align-items: center;
@@ -338,4 +304,41 @@ ul li {
   color: #690530;
   min-width: 20px;
   text-align: center;
+}
+
+/* Order page */
+.order-summary {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.order-summary h3 {
+  color: #6e0089;
+  margin-bottom: 15px;
+}
+
+.order-summary ul {
+  padding-left: 20px;
+}
+
+.order-summary li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #4b007d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-card {
+    width: 90%;
+  }
+
+  .form-container {
+    width: 95%;
+  }
 }
