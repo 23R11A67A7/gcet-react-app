@@ -12,7 +12,7 @@ export default function Login() {
   const handleLogin = () => {
     const user = users.find(u => u.email === email && u.password === password);
     if (user) {
-      setUser({ ...user, token: "abc123" }); 
+      axios.post()({ ...user, token: "abc123" }); 
       navigate("/");
     } else {
       alert("Invalid credentials");

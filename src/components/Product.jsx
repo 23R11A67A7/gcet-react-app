@@ -13,7 +13,7 @@ export default function Product() {
   // Fetch product list from backend
   const fetchProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:8080/products");
+      const res = await axios.get("https://gcet-node-app-dun.vercel.app/products/");
       setProducts(res.data);
     } catch (err) {
       console.error("Error fetching products:", err);

@@ -16,7 +16,7 @@ export default function Register() {
     if (alreadyExists) return alert("User already exists.");
     
     const newUser = { name, email, password };
-    setUsers([...users, newUser]);
+    axios.post()([...users, newUser]);
     alert("User registered!");
     navigate("/login");
   };
